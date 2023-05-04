@@ -10,6 +10,7 @@ pool: 'test'
 steps:
 - task: 'test'
   inputs:
+    artifactoryConnection: 'test'
     workingDirectory: ''
     gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
     gradleOptions: '-Xmx3072m'
@@ -26,8 +27,8 @@ steps:
     usesPlugin: true
     useWrapper: true
     collectBuildInfo: true
-  inputs:
-    artifactoryConnection: 'test'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
+  #inputs:
+   # artifactoryConnection: 'test'
+   # buildName: '$(Build.DefinitionName)'
+   # buildNumber: '$(Build.BuildNumber)'
 
