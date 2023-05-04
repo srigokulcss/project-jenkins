@@ -8,7 +8,7 @@ trigger:
 
 pool: 'test'
 steps:
-- task: 'MyTask@2'
+- task: Gradle@2
   inputs:
     artifactoryConnection: 'test'
     workingDirectory: ''
