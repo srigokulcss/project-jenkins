@@ -8,7 +8,7 @@ trigger:
 
 pool: 'test'
 steps:
-- task: 'test'
+- task: 'MyTask@2'
   inputs:
     artifactoryConnection: 'test'
     workingDirectory: ''
