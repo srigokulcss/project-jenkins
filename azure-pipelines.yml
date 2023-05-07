@@ -36,5 +36,7 @@ steps:
   condition: succeeded()
   inputs:
       artifactoryConnection: 'test'
+      collectBuildInfo: true
+      includeEnvVars: true
       buildName: '$(Build.DefinitionName)'
       buildNumber: '$(Build.BuildNumber)'
