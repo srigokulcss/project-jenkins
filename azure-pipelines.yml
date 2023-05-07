@@ -6,12 +6,12 @@
 trigger:
 - master
 
-pool: 'test'
+pool: 'sritest'
 steps:
 - task: Gradle@2
   inputs:
     artifactoryConnection: 'test'
-    workingDirectory: ''
+    workingDirectory: ' _work'
     gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
     gradleOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
