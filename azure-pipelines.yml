@@ -27,8 +27,8 @@ steps:
     usesPlugin: true
     useWrapper: true
     collectBuildInfo: true
-  #inputs:
-   # artifactoryConnection: 'test'
-   # buildName: '$(Build.DefinitionName)'
-   # buildNumber: '$(Build.BuildNumber)'
+  inputs:
+    artifactoryConnection: 'test'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
 
