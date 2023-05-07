@@ -30,3 +30,11 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
 
+- task: JFrogPublishBuildInfo@1
+      name: publishBInfo
+      displayName: 'Publish Build Info to JFrog'
+      condition: succeeded()
+      inputs:
+        artifactoryConnection: 'test'
+        buildName: '$(Build.DefinitionName)'
+        buildNumber: '$(Build.BuildNumber)'
