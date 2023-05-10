@@ -10,27 +10,40 @@ pool: 'sritest'
 steps:
 # Java tool installer v0
 # Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
-
-
 - task: JavaToolInstaller@0
   inputs:
-    versionSpec: '11.0.19'
+    versionSpec: '8'
     jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
 
+# - task: Gradle@2
+#   inputs:
+#     artifactoryConnection: 'test'
+#     workingDirectory: '/root/myagent/_work/1/s/'
+#     gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
+#     gradleOptions: '-Xmx3072m'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '8'
+#     jdkArchitectureOption: 'x64'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/TEST-*.xml'
+#     tasks: 'build'
+#     artifactoryResolverService: 'test'
+#     sourceRepo: ' artifactoryDeployerService: 'test'
+#     targetRepo: 'sri-dines-gradle-dev'
+#     usesPlugin: true
+#     useWrapper: true
+#     collectBuildInfo: true
+#     buildName: '$(Build.DefinitionName)'
+#     buildNumber: '$(Build.BuildNumber)'
 
-- task: Gradle@2
+
+- task: JFrogGradle@1
   inputs:
-    artifactoryConnection: 'test'
-    workingDirectory: '/root/myagent/_work/1/s/'
-    gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
-    gradleOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build'
+    gradleBuildFile: 'build.gradle'
+    workDir: '/root/myagent/_work/1/s/'
+    options: 'gradle-examples/gradle-example/gradlew'
+    tasks: 'artifactoryPublish'
     artifactoryResolverService: 'test'
     sourceRepo: 'sri-dines-gradle-dev'
     artifactoryDeployerService: 'test'
@@ -41,7 +54,7 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
 
-
+#    
 - task: JFrogPublishBuildInfo@1
   name: publishBInfo
   displayName: 'Publish Build Info to JFrog'
