@@ -14,9 +14,9 @@ steps:
     workingDirectory: '/root/myagent/_work/1/s/'
     gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
     gradleOptions: '-Xmx3072m'
-    #javaHomeOption: 'JDKVersion'
-    #jdkVersionOption: '1.8.0_362'
-    #jdkArchitectureOption: 'x64'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8.0_362'
+    jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
@@ -40,4 +40,4 @@ steps:
       includeEnvVars: true
       buildName: '$(Build.DefinitionName)'
       buildNumber: '$(Build.BuildNumber)'
-      excludeEnvVars: '*password*;*psw*;*secret*;*key*;*token*;*auth*;'
+      
