@@ -12,11 +12,20 @@ steps:
 # Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME.
 
 
+# - task: JavaToolInstaller@0
+#   inputs:
+#     versionSpec: '11.0.19'
+#     jdkArchitectureOption: 'x64'
+#     jdkSourceOption: 'PreInstalled'
+
 - task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '11.0.19'
-    jdkArchitectureOption: 'x64'
-    jdkSourceOption: 'PreInstalled'
+    inputs:
+      versionSpec: "11"
+      jdkArchitectureOption: x64
+      jdkSourceOption: LocalDirectory
+      jdkFile: "/builds/openjdk-11.0.2_linux-x64_bin.tar.gz"
+      jdkDestinationDirectory: "/builds/binaries/externals"
+      cleanDestinationDirectory: true
 - task: Gradle@2
   inputs:
     artifactoryConnection: 'test'
