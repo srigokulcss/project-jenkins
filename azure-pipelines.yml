@@ -19,14 +19,14 @@ steps:
 #     jdkSourceOption: 'PreInstalled'
 
 
-- task: Gradle@2
+- task: Gradle@3
   inputs:
     artifactoryConnection: 'test'
     workingDirectory: '/root/myagent/_work/1/s/'
     gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
     gradleOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
+    #jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
