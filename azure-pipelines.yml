@@ -18,6 +18,12 @@ steps:
 #     jdkArchitectureOption: 'x64'
 #     jdkSourceOption: 'PreInstalled'
 
+steps:
+ - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '11'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
 
 - task: Gradle@3
   inputs:
@@ -26,11 +32,11 @@ steps:
     gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
     gradleOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    #jdkVersionOption: '1.11'
+    jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build' --status
+    tasks: 'build'
     artifactoryResolverService: 'test'
     sourceRepo: 'sri-dines-gradle-dev'
     artifactoryDeployerService: 'test'
