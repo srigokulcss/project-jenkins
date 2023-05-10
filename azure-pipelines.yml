@@ -30,7 +30,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build'
+    tasks: 'build' --status
     artifactoryResolverService: 'test'
     sourceRepo: 'sri-dines-gradle-dev'
     artifactoryDeployerService: 'test'
@@ -40,7 +40,7 @@ steps:
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
---status
+
 
 - task: JFrogPublishBuildInfo@1
   name: publishBInfo
