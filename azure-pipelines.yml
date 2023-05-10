@@ -40,7 +40,7 @@ steps:
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    --status
+--status
 
 - task: JFrogPublishBuildInfo@1
   name: publishBInfo
