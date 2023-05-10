@@ -40,3 +40,4 @@ steps:
       includeEnvVars: true
       buildName: '$(Build.DefinitionName)'
       buildNumber: '$(Build.BuildNumber)'
+      excludeEnvVars: '*password*;*psw*;*secret*;*key*;*token*;*auth*;'
