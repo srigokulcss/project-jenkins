@@ -16,44 +16,44 @@ steps:
 #     jdkArchitectureOption: 'x64'
 #     jdkSourceOption: 'PreInstalled'
 
-# - task: Gradle@2
-#   inputs:
-#     artifactoryConnection: 'test'
-#     workingDirectory: '/root/myagent/_work/1/s/'
-#     gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
-#     gradleOptions: '-Xmx3072m'
-#     javaHomeOption: 'JDKVersion'
-#     jdkVersionOption: '8'
-#     jdkArchitectureOption: 'x64'
-#     publishJUnitResults: true
-#     testResultsFiles: '**/TEST-*.xml'
-#     tasks: 'build'
-#     artifactoryResolverService: 'test'
-#     sourceRepo: ' artifactoryDeployerService: 'test'
-#     targetRepo: 'sri-dines-gradle-dev'
-#     usesPlugin: true
-#     useWrapper: true
-#     collectBuildInfo: true
-#     buildName: '$(Build.DefinitionName)'
-#     buildNumber: '$(Build.BuildNumber)'
-
-
-- task: JFrogGradle@1
+- task: Gradle@2
   inputs:
-    gradleBuildFile: 'build.gradle'
-    workDir: '/root/myagent/_work/1/s/'
-    #options: 'gradle-examples/gradle-example/gradlew'
+    artifactoryConnection: 'test'
+    workingDirectory: '/root/myagent/_work/1/s/'
     gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
-    tasks: 'artifactoryPublish'
+    gradleOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: 'build'
     artifactoryResolverService: 'test'
-    sourceRepo: 'sri-dines-gradle-dev'
-    artifactoryDeployerService: 'test'
+    sourceRepo: ' artifactoryDeployerService: 'test'
     targetRepo: 'sri-dines-gradle-dev'
     usesPlugin: true
     useWrapper: true
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
+
+
+# - task: JFrogGradle@1
+#   inputs:
+#     gradleBuildFile: 'build.gradle'
+#     workDir: '/root/myagent/_work/1/s/'
+#     #options: 'gradle-examples/gradle-example/gradlew'
+#     gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
+#     tasks: 'artifactoryPublish'
+#     artifactoryResolverService: 'test'
+#     sourceRepo: 'sri-dines-gradle-dev'
+#     artifactoryDeployerService: 'test'
+#     targetRepo: 'sri-dines-gradle-dev'
+#     usesPlugin: true
+#     useWrapper: true
+#     collectBuildInfo: true
+#     buildName: '$(Build.DefinitionName)'
+#     buildNumber: '$(Build.BuildNumber)'
 
 - task: JFrogPublishBuildInfo@1
   inputs:
