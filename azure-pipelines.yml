@@ -16,11 +16,11 @@ steps:
 #     jdkArchitectureOption: 'x64'
 #     jdkSourceOption: 'PreInstalled'
 - task: Bash@3
-    displayName: 'Workaround: Set environment variables manually'
-    inputs:
-      targetType: 'inline'
-      script: |
-        cd ~
+  displayName: 'Workaround: Set environment variables manually'
+  inputs:
+    targetType: 'inline'
+    script: |
+      cd ~
         echo "##vso[task.setvariable variable=HOME]$(pwd)"
         echo "##vso[task.setvariable variable=USER]$(whoami)"
         echo "##vso[task.setvariable variable=JAVA_HOME_11_X64]/usr/lib/jvm/java-11-openjdk-11.0.19.0.7-1.el7_9.x86_64/bin/java"
