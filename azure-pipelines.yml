@@ -29,7 +29,8 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
     artifactoryResolverService: 'test'
-    sourceRepo: ' artifactoryDeployerService: 'test'
+    sourceRepo: 'sri-dines-gradle-dev' 
+    artifactoryDeployerService: 'test'
     targetRepo: 'sri-dines-gradle-dev'
     usesPlugin: true
     useWrapper: true
