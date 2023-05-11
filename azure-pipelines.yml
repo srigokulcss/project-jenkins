@@ -15,49 +15,21 @@ steps:
 #     versionSpec: '11'
 #     jdkArchitectureOption: 'x64'
 #     jdkSourceOption: 'PreInstalled'
-- task: Bash@3
-  displayName: 'Workaround: Set environment variables manually'
-  inputs:
-    targetType: 'inline'
-    script: |
-      cd ~
-        echo "##vso[task.setvariable variable=HOME]$(pwd)"
-        echo "##vso[task.setvariable variable=USER]$(whoami)"
-        echo "##vso[task.setvariable variable=JAVA_HOME_11_X64]/usr/lib/jvm/java-11-openjdk-11.0.19.0.7-1.el7_9.x86_64/bin/java"
-        
 
-- task: Gradle@2
-  inputs:
-    artifactoryConnection: 'test'
-    workingDirectory: '/root/myagent/_work/1/s/'
-    gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
-    gradleOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build'
-    artifactoryResolverService: 'test'
-    sourceRepo: 'sri-dines-gradle-dev' 
-    artifactoryDeployerService: 'test'
-    targetRepo: 'sri-dines-gradle-dev'
-    usesPlugin: true
-    useWrapper: true
-    collectBuildInfo: true
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-
-
-# - task: JFrogGradle@1
+# - task: Gradle@2
 #   inputs:
-#     gradleBuildFile: 'build.gradle'
-#     workDir: '/root/myagent/_work/1/s/'
-#     #options: 'gradle-examples/gradle-example/gradlew'
+#     artifactoryConnection: 'test'
+#     workingDirectory: '/root/myagent/_work/1/s/'
 #     gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
-#     tasks: 'artifactoryPublish'
+#     gradleOptions: '-Xmx3072m'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '1.8'
+#     jdkArchitectureOption: 'x64'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/TEST-*.xml'
+#     tasks: 'build'
 #     artifactoryResolverService: 'test'
-#     sourceRepo: 'sri-dines-gradle-dev'
+#     sourceRepo: 'sri-dines-gradle-dev' 
 #     artifactoryDeployerService: 'test'
 #     targetRepo: 'sri-dines-gradle-dev'
 #     usesPlugin: true
@@ -65,6 +37,24 @@ steps:
 #     collectBuildInfo: true
 #     buildName: '$(Build.DefinitionName)'
 #     buildNumber: '$(Build.BuildNumber)'
+
+
+- task: JFrogGradle@1
+  inputs:
+    gradleBuildFile: 'build.gradle'
+    workDir: '/root/myagent/_work/1/s/'
+    #options: 'gradle-examples/gradle-example/gradlew'
+    #gradleWrapperFile: 'gradle-examples/gradle-example/gradlew'
+    tasks: 'artifactoryPublish'
+    artifactoryResolverService: 'test'
+    sourceRepo: 'sri-dines-gradle-dev'
+    artifactoryDeployerService: 'test'
+    targetRepo: 'sri-dines-gradle-dev'
+    usesPlugin: true
+    useWrapper: true
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
 
 - task: JFrogPublishBuildInfo@1
   inputs:
