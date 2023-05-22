@@ -6,7 +6,7 @@ pool:
 steps:
 - task: JFrogGradle@1
   inputs:
-    gradleBuildFile: 'gradle-examples/gradle-android-example/build.gradle'
+    gradleBuildFile: 'gradle-examples/gradle-example-publish/build.gradle'
     tasks: 'artifactoryPublish'
     artifactoryResolverService: 'arti'
     sourceRepo: 'sri-dines-gradle-dev'
