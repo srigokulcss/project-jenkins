@@ -13,7 +13,7 @@ steps:
     artifactoryDeployerService: 'arti'
     targetRepo: 'sri-dines-gradle-dev'
     #usesPlugin: true
-    #useWrapper: true
+    useWrapper: true
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
