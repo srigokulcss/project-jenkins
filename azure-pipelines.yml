@@ -1,24 +1,40 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
 - task: JFrogGradle@1
-      inputs:
-        gradleBuildFile: '$(System.DefaultWorkingDirectory)/Android/app/build.gradle'
-        workDir: '$(System.DefaultWorkingDirectory)/Android/'
-        tasks: 'assembleUatGoogleDebug --refresh-dependencies -Dandroid.forceJacocoOutOfProcess=true -PkeyStr=$(PkeyStr) -PsigningConfigs_keyAlias=$(signingConfigs_keyAlias) -PsigningConfigs_keyPassword=$(signingConfigs_keyPassword) -PsigningConfigs_storePassword=$(signingConfigs_storePassword)'
-        artifactoryResolverService: 'digital-artifactory-central'
-        sourceRepo: 'digital-mvn-repo'
-        artifactoryDeployerService: 'digital-artifactory-central'
-        targetRepo: 'digital-gradle-snapshots-local'
-        useWrapper: true
-        collectBuildInfo: true
-        buildName: 'digital-$(Build.DefinitionName)'
-        buildNumber: '$(Build.BuildNumber)'
-        includeEnvVars: true
+  inputs:
+    gradleBuildFile: 'build.gradle'
+    tasks: 'artifactoryPublish'
+    artifactoryResolverService: 'arti'
+    sourceRepo: 'sri-dines-gradle-dev'
+    artifactoryDeployerService: 'arti'
+    targetRepo: 'sri-dines-gradle-dev'
+    usesPlugin: true
+    useWrapper: true
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    #projectKey: 'gokul_test'
 
 
-    - task: JFrogPublishBuildInfo@1
-      name: publishBInfo
-      displayName: 'Publish Build Info to JFrog'
-      condition: succeeded()
-      inputs:
-        artifactoryConnection: 'digital-artifactory-central'
-        buildName: 'digital-$(Build.DefinitionName)'
-        buildNumber: '$(Build.BuildNumber)'
+
+
+# - task: JFrogGradle@1
+#       inputs:
+#         gradleBuildFile: '$(System.DefaultWorkingDirectory)/Android/app/build.gradle'
+#         workDir: '$(System.DefaultWorkingDirectory)/Android/'
+#         tasks: 'assembleUatGoogleDebug --refresh-dependencies -Dandroid.forceJacocoOutOfProcess=true -PkeyStr=$(PkeyStr) -PsigningConfigs_keyAlias=$(signingConfigs_keyAlias) -PsigningConfigs_keyPassword=$(signingConfigs_keyPassword) -PsigningConfigs_storePassword=$(signingConfigs_storePassword)'
+#         artifactoryResolverService: 'digital-artifactory-central'
+#         sourceRepo: 'digital-mvn-repo'
+#         artifactoryDeployerService: 'digital-artifactory-central'
+#         targetRepo: 'digital-gradle-snapshots-local'
+#         useWrapper: true
+#         collectBuildInfo: true
+#         buildName: 'digital-$(Build.DefinitionName)'
+#         buildNumber: '$(Build.BuildNumber)'
+#         includeEnvVars: true
+
+
