@@ -8,7 +8,7 @@ steps:
   inputs:
     gradleBuildFile: 'build.gradle'
     workDir: 'gradle-examples/gradle-android-library-example-ci-server'
-    tasks: 'artifactoryPublish'
+    #tasks: 'artifactoryPublish'
     artifactoryResolverService: 'arti'
     sourceRepo: 'sri-dines-gradle-dev'
     artifactoryDeployerService: 'arti'
@@ -16,7 +16,7 @@ steps:
     usesPlugin: true
     useWrapper: true
     deployIvyDesc: false
-    collectBuildInfo: true
+    #collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     
