@@ -8,7 +8,7 @@ steps:
   inputs:
     gradleBuildFile: 'gradle-examples/gradle-android-library-example-ci-server/build.gradle'
     gradleWrapperFile: 'gradle-examples/gradle-android-library-example-ci-server/gradlew'
-    workDir: 'gradle-examples/gradle-android-library-example-ci-server'
+    #workDir: 'gradle-examples/gradle-android-library-example-ci-server'
     tasks: 'artifactoryPublish'
     artifactoryResolverService: 'arti'
     sourceRepo: 'sri-dines-gradle-dev'
