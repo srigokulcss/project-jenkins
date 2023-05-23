@@ -6,8 +6,8 @@ pool:
 steps:
 - task: JFrogGradle@1
   inputs:
-    gradleBuildFile: 'build.gradle'
-    workDir: 'gradle-examples/gradle-android-library-example-ci-server'
+    gradleBuildFile: 'gradle-examples/gradle-android-library-example-ci-server/build.gradle'
+    #workDir: 'gradle-examples/gradle-android-library-example-ci-server'
     #tasks: 'artifactoryPublish'
     artifactoryResolverService: 'arti'
     sourceRepo: 'sri-dines-gradle-dev'
