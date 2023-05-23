@@ -19,14 +19,7 @@ steps:
 #     #collectBuildInfo: true
 #     buildName: '$(Build.DefinitionName)'
 #     buildNumber: '$(Build.BuildNumber)'
-- task: JFrogGradle@1
-  inputs:
-    gradleBuildFile: 'build.gradle'
-    tasks: 'artifactoryPublish'
-    artifactoryResolverService: 'arti'
-    sourceRepo: 'sri-dines-gradle-dev'
-    artifactoryDeployerService: 'arti'
-    targetRepo: 'sri-dines-gradle-dev'
+
 
 # - task: JFrogGradle@1
 #   inputs:
