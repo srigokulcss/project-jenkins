@@ -7,7 +7,7 @@ pool:
 steps:
 - task: JFrogGradle@1
   inputs:
-    gradleBuildFile: 'build.gradle'
+    gradleBuildFile: 'gradle-examples/gradle-android-example/build.gradle'
     tasks: 'artifactoryPublish'
     artifactoryResolverService: 'arti'
     sourceRepo: 'sri-dines-gradle-dev'
@@ -20,6 +20,7 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     collectBuildInfo: true
+
 
 # - task: JFrogGradle@1
 #   inputs:
