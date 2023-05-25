@@ -5,7 +5,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 steps:
-
+- task: SSH@0
+  inputs:
+    runOptions: 'inline'
+    inline: 'find / -name "gradlew"'
+    readyTimeout: '20000'
 - task: JFrogGradle@1
   inputs:
     gradleBuildFile: 'gradle-examples/gradle-android-example/build.gradle'
