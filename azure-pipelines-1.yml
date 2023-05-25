@@ -1,0 +1,20 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: JfrogCliV2@1
+  inputs:
+    jfrogPlatformConnection: 'platform-url'
+    command: 'jf gradle-config  --repo-deploy=sri-dines-gradle-dev  --repo-resolve=sri-dines-gradle-dev --use-wrapper=true'
+- task: JfrogCliV2@1
+  inputs:
+    jfrogPlatformConnection: 'platform-url'
+    command: 'jf gradle clean artifactoryPublish -b gradle-examples/gradle-android-example/build.gradle --build-name sample-android-1 --build-number 1.0.0'
