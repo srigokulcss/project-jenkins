@@ -10,8 +10,8 @@ steps:
     targetType: 'inline'
     script: |
       # Write your commands here
-      #sudo chmod -R +x /home/vsts/work/1/s/gradle-examples/gradle-android-example/
-      sudo chmod +x /home/vsts/work/1/s/gradle-examples/gradle-android-example/build.gradle
+      sudo chmod -R +x /home/vsts/work/1/s/gradle-examples/gradle-android-example/gradlew
+      #sudo chmod +x /home/vsts/work/1/s/gradle-examples/gradle-android-example/build.gradle
       #sudo ./home/vsts/work/1/s/gradle-examples/gradle-android-example/gradlew --version
 
 # - task: Gradle@3
@@ -25,7 +25,7 @@ steps:
 #     spotBugsAnalysis: false
 - task: JFrogGradle@1
   inputs:
-    gradleBuildFile: 'gradle-examples/gradle-android-example/build.gradle'
+    gradleBuildFile: 'gradle-examples/gradle-android-example/gradlew'
     tasks: 'artifactoryPublish'
     artifactoryResolverService: 'arti'
     sourceRepo: 'sri-dines-gradle-dev'
