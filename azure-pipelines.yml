@@ -10,7 +10,17 @@ steps:
     targetType: 'inline'
     script: |
       # Write your commands here
-      find / -name "gradlew"
+      sudo find / -name "gradlew"
+
+- task: Gradle@3
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    workingDirectory: 'gradle-examples/gradle-android-example'
+    tasks: 'build'
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: false
+    spotBugsAnalysis: false
 - task: JFrogGradle@1
   inputs:
     gradleBuildFile: 'gradle-examples/gradle-android-example/build.gradle'
