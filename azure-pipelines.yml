@@ -5,11 +5,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 steps:
+
 - task: JFrogGradle@1
   inputs:
     gradleBuildFile: 'gradle-examples/gradle-android-example/build.gradle'
-    gradleWrapperFile: 'gradle-examples/gradle-android-example/gradlew'
-    workingDirectory: 'gradle-examples/gradle-android-example'
     tasks: 'artifactoryPublish'
     artifactoryResolverService: 'arti'
     sourceRepo: 'sri-dines-gradle-dev'
@@ -19,9 +18,9 @@ steps:
     useWrapper: true
     deployMavenDesc: false
     deployIvyDesc: false
+    collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    collectBuildInfo: true
 
 
 # - task: JFrogGradle@1
