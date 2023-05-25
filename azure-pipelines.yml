@@ -10,7 +10,7 @@ steps:
     targetType: 'inline'
     script: |
       # Write your commands here
-      sudo chmod +x /home/vsts/work/1/s/gradle-examples/gradle-android-example/gradlew 
+      sudo chmod -R +x /home/vsts/work/1/s/gradle-examples/gradle-android-example/
       #sudo ./home/vsts/work/1/s/gradle-examples/gradle-android-example/gradlew --version
 
 # - task: Gradle@3
