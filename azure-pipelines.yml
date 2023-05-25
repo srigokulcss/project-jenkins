@@ -8,7 +8,7 @@ steps:
 - task: JFrogGradle@1
   inputs:
     gradleBuildFile: 'gradle-examples/gradle-android-example/build.gradle'
-    gradleWrapperFile: 'gradle-examples/gradle-android-library-example-ci-server/gradlew'
+    gradleWrapperFile: 'gradle-examples/gradle-android-example/gradlew'
     tasks: 'artifactoryPublish'
     artifactoryResolverService: 'arti'
     sourceRepo: 'sri-dines-gradle-dev'
