@@ -10,17 +10,18 @@ steps:
     targetType: 'inline'
     script: |
       # Write your commands here
-      sudo find / -name "gradlew"
+      sudo chmod +x /home/vsts/work/1/s/gradle-examples/gradle-android-example/gradlew 
+      sudo ./home/vsts/work/1/s/gradle-examples/gradle-android-example/gradlew --version
 
-- task: Gradle@3
-  inputs:
-    gradleWrapperFile: 'gradlew'
-    workingDirectory: 'gradle-examples/gradle-android-example'
-    tasks: 'build'
-    publishJUnitResults: false
-    javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: false
-    spotBugsAnalysis: false
+# - task: Gradle@3
+#   inputs:
+#     gradleWrapperFile: 'gradlew'
+#     workingDirectory: 'gradle-examples/gradle-android-example'
+#     tasks: 'build'
+#     publishJUnitResults: false
+#     javaHomeOption: 'JDKVersion'
+#     sonarQubeRunAnalysis: false
+#     spotBugsAnalysis: false
 - task: JFrogGradle@1
   inputs:
     gradleBuildFile: 'gradle-examples/gradle-android-example/build.gradle'
