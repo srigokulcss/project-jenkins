@@ -9,23 +9,23 @@ To work with Go repositories you need to use [JFrog CLI](https://www.jfrog.com/c
 * Make sure the **go** command is in your PATH.
 * Install [JFrog CLI](https://jfrog.com/getcli/)
 * Make sure your Artifactory version is 5.11.0 or above
-* Make sure your JFrog CLI version is 1.26.0 or above
+* Make sure your JFrog CLI version is 2.0.0 or above
 
 ## Running the Example
 'cd' to the root project directory
 
 ```console
 Configure Artifactory:
-> jf c add
+> jf c add --url=<JFROG_PLATFORM_URL> [credentials flags]
 
 Configure the project's repositories:
-> jf rt go-config
+> jf go-config --repo-resolve=<GO_RESOLVE_REPO> --repo-deploy=<GO_DEPLOY_REPO>
 
 Build the project with go and resolve the project dependencies from Artifactory.
-> jf rt go build --build-name=my-build --build-number=1 
+> jf go build --build-name=my-build --build-number=1 
 
-Publish version v1.0.0 of the package to the go-local repository in Artifactory.
-> jf rt gp go-local v1.0.0 --build-name=my-build --build-number=1
+Publish version v1.0.0 of the package to the <GO_DEPLOY_REPO> repository in Artifactory.
+> jf go-publish v1.0.0 --build-name=my-build --build-number=1
 
 Collect environment variables and add them to the build info.
 > jf rt bce my-build 1
