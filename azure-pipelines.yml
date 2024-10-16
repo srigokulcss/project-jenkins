@@ -11,6 +11,7 @@ pool:
 
 variables:
  JFROG_CLI_LOG_LEVEL: 'DEBUG'
+ workingFolder: 'gradle-examples/gradle-android-example'
 
 steps:
 - task: JFrogGradle@1
@@ -26,5 +27,5 @@ steps:
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    workingFolder: 'gradle-examples/gradle-android-example'
+    
 
