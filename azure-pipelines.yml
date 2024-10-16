@@ -11,7 +11,7 @@ pool:
 
 variables:
  JFROG_CLI_LOG_LEVEL: 'DEBUG'
- workingFolder: 'gradle-examples/gradle-android-example'
+ workingFolder: 'gradle-examples/gradle-android-example/'
 
 steps:
 - task: JFrogGradle@1
@@ -22,7 +22,7 @@ steps:
     sourceRepo: 'sri-android-gradle-dev'
     artifactoryDeployerService: 'arti'
     targetRepo: 'sri-android-gradle-dev'
-    useWrapper: true
+    #useWrapper: true
     usesPlugin: true
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
