@@ -16,6 +16,7 @@ variables:
 steps:
 - task: JFrogGradle@1
   inputs:
+    workingDirectory: $(working-dir)
     gradleBuildFile: 'build.gradle'
     tasks: 'artifactoryPublish'
     artifactoryResolverService: 'arti'
