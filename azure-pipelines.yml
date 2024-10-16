@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+ JFROG_CLI_LOG_LEVEL: 'DEBUG'
+
+steps:
+- task: JFrogGradle@1
+  inputs:
+    gradleBuildFile: 'build.gradle'
+    tasks: 'artifactoryPublish'
+    artifactoryResolverService: 'arti'
+    sourceRepo: 'sri-android-gradle-dev'
+    artifactoryDeployerService: 'arti'
+    targetRepo: 'sri-android-gradle-dev'
+    useWrapper: true
+    usesPlugin: true
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    workingFolder: 'gradle-examples/gradle-android-example'
+
